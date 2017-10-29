@@ -1,0 +1,22 @@
+{% extends '../../layout/_base.twig' %}
+
+{% set title = "BEM" %}
+
+{% block content %}
+<h1>BEM</h1>
+
+<div class="bem">
+	<button class="button">Submit</button>
+
+	<button class="button button_color_blue">Submit</button>
+
+	<button class="button button_color_blue button_size_small">Submit</button>
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+<script type="text/javascript" src="/inc/js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/inc/js/script.js"></script>
+{% endblock %}

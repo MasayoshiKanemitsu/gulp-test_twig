@@ -1,0 +1,19 @@
+{% extends '../layout/_base.twig' %}
+
+{% set title = "Index" %}
+
+{% block content %}
+<div class="list">
+	<h1>Hello world!</h1>
+	<ul>
+		<li><a href="/flexbox/index.html" target="_blank">Flexbox</a></li>
+		<li><a href="/bem/index.html" target="_blank">BEM</a></li>
+	</ul>
+</div>
+{% endblock %}
+
+
+{% block script %}
+<script type="text/javascript" src="/inc/js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/inc/js/script.js"></script>
+{% endblock %}
