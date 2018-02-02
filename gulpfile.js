@@ -96,7 +96,7 @@ gulp.task("uglify", function() {
 
 //Image
 gulp.task("imagemin", function() {
-	gulp.src("src/asset/image/**/*")
+	return gulp.src("src/asset/image/**/*")
 		.pipe(imagemin())
 		.pipe(gulp.dest(imgPas))
 		.pipe(notify('Image Compressed!!'));
