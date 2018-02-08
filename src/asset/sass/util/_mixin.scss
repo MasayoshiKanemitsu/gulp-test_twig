@@ -1,0 +1,183 @@
+//オリジナルmixin
+
+//----------------------------------mixin
+
+
+// リストの丸(色や大きさを変えたりすると便利！liに付ける。)
+@mixin listDisc($before-or-after:before) {
+  &:#{$before-or-after} {
+    content: "";
+    letter-spacing: -.5em;
+    margin-right: .6em;
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    background: $gray;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-top: -3px;
+  }
+}
+
+// 疑似要素の画像を付ける
+@mixin withImg($width:100px, $height:100px, $bgImg: "ico_first.png", $position: static, $before-or-after:before, $display:block) {
+  &:#{$before-or-after} {
+    content: "";
+    width: $width;
+    height: $height;
+    background: url+"(/"+inc+"/"+images+"/"+$bgImg +")" no-repeat; // common/bg_round.pngのように書く
+    background-size: 100%;
+    display: $display;
+    position: $position;
+  }
+}
+// フォントアイコンを付ける
+@mixin iconFont($content: "\f105", $before-or-after:before, $margin:.6em) {
+  &:#{$before-or-after} {
+    content: $content;
+    font-family: fontawesome;
+    margin: 0 $margin;
+  }
+}
+// グラデーション (IE8のために#fffと書かない。#ffffffと書くこと。)
+@mixin gradient($start-color, $end-color, $orientation: vertical) {
+  background: $start-color;
+  @if $orientation == vertical {
+  // vertical
+  background: -moz-linear-gradient(top,  $start-color 10%, $end-color 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start-color), color-stop(100%,$end-color));
+  background: -webkit-linear-gradient(top,  $start-color 10%,$end-color 100%);
+  background: -o-linear-gradient(top,  $start-color 10%,$end-color 100%);
+  background: -ms-linear-gradient(top, $start-color 10%,$end-color 100%);
+  background: linear-gradient(to bottom, $start-color 10%,$end-color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start-color}', endColorstr='#{$end-color}',GradientType=0 );
+  }
+  @else if $orientation == horizontal {
+  // horizontal
+  background: -moz-linear-gradient(left,  $start-color 10%, $end-color 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%,$start-color), color-stop(100%,$end-color));
+  background: -webkit-linear-gradient(left,  $start-color 10%,$end-color 100%);
+  background: -o-linear-gradient(left,  $start-color 10%,$end-color 100%);
+  background: -ms-linear-gradient(left,  $start-color 10%,$end-color 100%);
+  background: linear-gradient(to right,  $start-color 10%,$end-color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start-color}', endColorstr='#{$end-color}',GradientType=1 );
+  }
+  @else {
+  // radial
+  background: -moz-radial-gradient(center, ellipse cover,  $start-color 10%, $end-color 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(10%,$start-color), color-stop(100%,$end-color));
+  background: -webkit-radial-gradient(center, ellipse cover,  $start-color 10%,$end-color 100%);
+  background: -o-radial-gradient(center, ellipse cover,  $start-color 10%,$end-color 100%);
+  background: -ms-radial-gradient(center, ellipse cover,  $start-color 10%,$end-color 100%);
+  background: radial-gradient(ellipse at center,  $start-color 10%,$end-color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start-color}', endColorstr='#{$end-color}',GradientType=1 );
+  }
+}
+//縦書き
+@mixin writing-mode($value:vertical-rl, $value02:tb-rl) {
+  writing-mode: $value;
+  -ms-writing-mode: $value02;
+  -webkit-writing-mode: $value;
+}
+// hoverで透明度変更
+@mixin hoverOpacity($value:.7) {
+  transition: opacity .4s;
+  opacity: 1;
+  &:hover {
+    opacity: $value;
+  }
+}
+
+// ふきだし($directionで向きを指定 top：上向き bottom:下向き left:左向き right:右向き)
+@mixin hukidashi($direction:bottom,$width:32px,$height: 22px,$color:#fafafa,$before-or-after:before) {
+  position: relative;
+  @if $direction == top {
+    &:#{$before-or-after} {
+      content: "";
+      position: absolute;
+      top: -$height+1px;
+      left: 50%;
+      margin-left: -$width;
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 $width $height $width;
+      border-color: transparent transparent $color transparent;
+    }
+  }
+  @else if $direction == bottom {
+    &:#{$before-or-after} {
+      content: "";
+      position: absolute;
+      bottom: -$height+1px;
+      left: 50%;
+      margin-left: -$width;
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: $height $width 0 $width;
+      border-color: $color transparent transparent transparent;
+    }
+  }
+  @else if $direction == left {
+    &:#{$before-or-after} {
+      content: "";
+      position: absolute;
+      left: -$height+1px;
+      top: 50%;
+      margin-top: -$width;
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: $width $height $width 0;
+      border-color: transparent $color transparent transparent;
+    }
+  }
+  @else if $direction == right {
+    &:#{$before-or-after} {
+      content: "";
+      position: absolute;
+      right: -$height+1px;
+      top: 50%;
+      margin-top: -$width;
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: $width 0 $width $height;
+      border-color: transparent transparent transparent $color;
+    }
+  }
+}
+// スクロールバー(safari用)
+@mixin scroll {
+  overflow: auto;
+  &::-webkit-scrollbar{
+    width: 7px;
+    background: #eee;
+  }
+  &::-webkit-scrollbar:horizontal{
+    width: 7px;
+    background: #eee;
+  }
+  &::-webkit-scrollbar-thumb{
+    background: $grayDark;
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-thumb:horizontal{
+    background: $grayDark;
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-track-piece:start{
+    background: #eee;
+  }
+  &::-webkit-scrollbar-track-piece:end{
+    background: #eee;
+  }
+  &::-webkit-scrollbar-corner{
+    background: transparent;
+  }
+}

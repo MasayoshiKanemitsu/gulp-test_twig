@@ -1,0 +1,64 @@
+//変数定義
+
+/*
+██████   █████  ███████ ███████
+██   ██ ██   ██ ██      ██
+██████  ███████ ███████ █████
+██   ██ ██   ██      ██ ██
+██████  ██   ██ ███████ ███████
+*/
+
+// 全体のコンテンツ幅
+$contentWidth: 980px;
+$contentPadding: 10px;//パディング
+
+/*
+██████  ██████  ███████  █████  ██   ██ ██████   ██████  ██ ███    ██ ████████
+██   ██ ██   ██ ██      ██   ██ ██  ██  ██   ██ ██    ██ ██ ████   ██    ██
+██████  ██████  █████   ███████ █████   ██████  ██    ██ ██ ██ ██  ██    ██
+██   ██ ██   ██ ██      ██   ██ ██  ██  ██      ██    ██ ██ ██  ██ ██    ██
+██████  ██   ██ ███████ ██   ██ ██   ██ ██       ██████  ██ ██   ████    ██
+*/
+
+//全体をレスポンシブ非対応にする時は false
+$responsiveMode : true;
+
+
+// max-width
+$breakpoint-max: (
+  'sm': 'screen and (max-width: 600px)', //スマホ境界
+  'md': 'screen and (max-width: 800px)', //タブレット境界
+  'lg': 'screen and (max-width: 1000px)',
+  'xl': 'screen and (max-width: 1200px)',
+) !default;
+
+
+/*
+ ██████  ██████  ██       ██████  ██████
+██      ██    ██ ██      ██    ██ ██   ██
+██      ██    ██ ██      ██    ██ ██████
+██      ██    ██ ██      ██    ██ ██   ██
+ ██████  ██████  ███████  ██████  ██   ██
+*/
+
+$keyColor: #000; //キーカラー
+$accentColor: #cc0000; //アクセントカラー
+
+/*
+████████ ███████ ██   ██ ████████
+   ██    ██       ██ ██     ██
+   ██    █████     ███      ██
+   ██    ██       ██ ██     ██
+   ██    ███████ ██   ██    ██
+*/
+
+$textColor: #444;
+$textColorLight: lighten($textColor,10);
+$textColorDark: darken($textColor,10);
+
+$lineHeight: 1.3em; // 基本的な行間
+
+// サンセリフ・ゴシック体
+$sanserif: 游ゴシック体, YuGothic-M, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+// セリフ・明朝体
+$serif: "游明朝", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;

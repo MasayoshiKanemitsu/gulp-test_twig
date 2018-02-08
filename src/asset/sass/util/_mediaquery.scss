@@ -1,0 +1,12 @@
+//メディアクエリ出力用mixin
+
+// @mixinの定義
+@mixin mq-max($breakpoint: sm) {
+  @if $responsiveMode == true{
+    @media #{map-get($breakpoint-max, $breakpoint)} {
+      body:not(.no-rp) &{
+        @content;
+      }
+    }
+  }
+}

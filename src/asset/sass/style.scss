@@ -1,132 +1,15 @@
-.list{
-	width: 80%;
-	margin: 0 auto;
-	h1{
-		text-align: center;
-	}
-	ul{
-		list-style-type: none;
-		padding: 0;
-	}
-	li{
-		margin: 20px 0 0 0;
-		display: inline-block;
-		width: 24.5%;
-	}
-	a{
-		color: black;
-		text-decoration: none;
-		font-size: 1.5em;
-		padding: 10px 0;
-		display: block;
-		text-align: center;
-		background-color: #fff;
-		border-radius: 20px;
-		border-bottom: 3px solid #222;
-		&:hover{
-			background-color: #0ff;
-			border-bottom: none;
-		}
-	}
-}
+// サイト全体 共通SCSS
 
-.bem{
-	.button {
-		display: inline-block;
-		padding: 5px 10px;
-		border: 1px solid rgba(0,0,0,.1);
-		border-radius: 3px;
-		font-size: 16px;
-		line-height: 1.5;
-		text-align: center;
-		text-decoration: none;
-		cursor: pointer;
-	}
+//ユーティリティ群
+@import "util/all";
 
-	/*Modifier color*/
-	.button.button_color_blue {
-		border-bottom: 3px solid #026F84;
-		text-shadow: 0 -1px 0 rgba(0,0,0,.4);
-		color: #fff;
-		background: linear-gradient(to bottom,#45bad0,#1f9ab1);
-	}
-	.button.button_color_blue:hover {
-		background: linear-gradient(to bottom,#2fa4ba,#0f89a0);
-	}
+//ベース読込
+@import "base/ress"; // 初期化CSS
+@import "base/base"; // 共通部分
+@import "base/layout"; // レイアウト
+//@import "base/lower"; // 下層共通CSS
+//@import "base/gridlex/gridlex"; //グリッド用
+//@import "base/fontawesome/font-awesome"; //アイコンフォント
 
-	/*Modifier size*/
-	.button.button_size_small {
-		padding: 3px 5px;
-		font-size: 12px;
-	}
-}
-
-body {
-	font: 24px Helvetica;
-	background: #999999;
-}
-
-#main {
-	min-height: 800px;
-	margin: 0px;
-	padding: 0px;
-	display: flex;
-	flex-flow: row;
-}
-
-#main > article {
-	margin: 4px;
-	padding: 5px;
-	border: 1px solid #cccc33;
-	border-radius: 7pt;
-	background: #dddd88;
-	flex: 3 1 60%;
-	order: 2;
-}
-
-#main > nav {
-	margin: 4px;
-	padding: 5px;
-	border: 1px solid #8888bb;
-	border-radius: 7pt;
-	background: #ccccff;
-	flex: 1 6 20%;
-	order: 1;
-}
-
-#main > aside {
-	margin: 4px;
-	padding: 5px;
-	border: 1px solid #8888bb;
-	border-radius: 7pt;
-	background: #ccccff;
-	flex: 1 6 20%;
-	order: 3;
-}
-
-header, footer {
-	display: block;
-	margin: 4px;
-	padding: 5px;
-	min-height: 100px;
-	border: 1px solid #eebb55;
-	border-radius: 7pt;
-	background: #ffeebb;
-}
-
-/* Too narrow to support three columns */
-@media all and (max-width: 640px) {
-	#main, #page {
-		flex-direction: column;
-	}
-
-	#main > article, #main > nav, #main > aside {
-		/* Return them to document order */
-		order: 0;
-	}
-
-	#main > nav, #main > aside, header, footer {
-		min-height: 50px;
-		max-height: 50px;
-	}
-}
+//module群
+@import "module/all";
