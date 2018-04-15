@@ -1,6 +1,2 @@
 //function
-$(document).ready(function(){
-	$("header").click(function(){
-		$("#main").toggle();
-	});
-});
+//*script.jsに直接書かない

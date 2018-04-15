@@ -1,0 +1,23 @@
+{% extends '../../layout/_01_lower.twig' %}
+
+{# ページタイトル設定 #}
+{% set pageTitle = 'サンプル下層ページ1' %}
+
+{# ページID設定 #}
+{% set pageId = 'lower' %}
+
+{# ページ個別 CSS等 #}
+{% block headArea %}
+{{parent()}}
+{% endblock %}
+
+{# コンテンツをここに記載(div#contents内) #}
+{% block contents %}
+
+<p>下層ページ[lower1]</p>
+
+{% endblock %}
+
+{# ページ個別　JS等 #}
+{% block jsArea %}
+{% endblock %}

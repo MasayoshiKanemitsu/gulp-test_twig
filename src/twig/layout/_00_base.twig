@@ -1,0 +1,34 @@
+{# サイト全体共通テンプレート #}
+<!DOCTYPE HTML>
+<html lang="ja">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    {% if responsive == true %}<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">{% endif %}
+    <meta name="format-detection" content="telephone=no">
+    <title>{% if pageTitle %}{{pageTitle}}｜{% endif %}{{siteName}}</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="keywords" content="{{keywords}}"/>
+    <meta name="description" content="{{description}}">
+    {% include ('../include/_ogp.twig') %}
+    {% if not disableBaseStyle %}<link rel="stylesheet" type="text/css" href="/inc/css/style.css">{% endif %}
+    {% block headArea %}{% endblock %}
+  </head>
+
+  <body id="{{pageId}}"{% if pageClass |length > 0 %} class="{{pageClass}}"{% endif %}>
+    <div id="container">
+      {% include ('../include/_header.twig') %}
+
+      <div id="main">
+      {% block main %}{% endblock %}
+      </div>
+      <!-- end of #main -->
+
+      {% include ('../include/_footer.twig') %}
+
+    </div>
+    <!-- end of #container -->
+    <script type="text/javascript" src="/inc/js/script.min.js"></script>
+    <!--[if lt IE 9]><script src="/inc/js/old-ie.min.js"></script><![endif]-->
+    {% block jsArea %}{% endblock %}
+  </body>
+</html>

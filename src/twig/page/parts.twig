@@ -1,0 +1,50 @@
+{% extends '../layout/_00_base.twig' %}
+
+<!-- ページタイトル設定 -->
+{% set pageTitle = '' %}
+
+<!-- ページID設定 -->
+{% set pageId = 'susy-demo' %}
+
+<!-- ページ個別　CSS等 -->
+{% block headArea %}
+<link rel="stylesheet" type="text/css" href="/inc/css/page/parts.css">
+{% endblock %}
+
+<!-- コンテンツをここに記載(div#main) -->
+{% block main %}
+  <a href="http://susydocs.oddbird.net/en/latest/">susyドキュメント</a>
+  <h2>通常グリッド</h2>
+  <h3>デフォルトガター</h3>
+  <div class="colomungrid row">
+    <div class="side col-12 col-sm-2">サイド</div>
+    <div class="main col-auto">メイン</div>
+  </div>
+
+
+  <h3>ガター内側</h3>
+  <div class="colomungrid2">
+    <div class="side">サイド</div>
+    <div class="main">メイン</div>
+  </div>
+
+  <h3>ガター指定</h3>
+  <div class="colomungrid3">
+    <div class="side">サイド</div>
+    <div class="main">メイン</div>
+  </div>
+
+  <h2>均等グリッド</h2>
+  <div class="garally">
+    <div class=""><img src="https://placehold.jp/150x150.png"></div>
+    <div class=""><img src="https://placehold.jp/150x150.png"></div>
+    <div class=""><img src="https://placehold.jp/150x150.png"></div>
+    <div class=""><img src="https://placehold.jp/150x150.png"></div>
+    <div class=""><img src="https://placehold.jp/150x150.png"></div>
+    <div class=""><img src="https://placehold.jp/150x150.png"></div>
+  </div>
+{% endblock %}
+
+<!-- ページ個別　JS等 -->
+{% block jsArea %}
+{% endblock %}
